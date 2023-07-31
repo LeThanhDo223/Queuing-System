@@ -1,8 +1,5 @@
 /* information */
-.col-icon1 {
-  background: var(--orange-orange-50, #fff2e7);
-  color: #ffac6a;
-}
+
 .col_info {
   border-radius: 24px;
   background: #fff;
@@ -61,4 +58,55 @@
   
   
 }
+.col-icon1 {
+  background: var(--orange-orange-50, #fff2e7);
+  color: #ffac6a;
+  display: flex;
+width: 32px;
+height: 32px;
+padding: 6px;
+justify-content: center;
+align-items: center;
+flex-shrink: 0;
+border-radius: 32px;
+border: none;
+}
 /* MenuHeader */
+
+/* Notification */
+.notification-container {
+  background: white;
+  border-radius: 14px;
+  /* Thêm bóng đổ */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Có thể điều chỉnh màu và độ mờ của bóng đổ tại đây */
+  /* Thêm lớp chồng lên */
+  position: relative;
+  z-index: 1; /* Đặt giá trị lớn hơn 0 để đảm bảo nằm trên các phần tử có giá trị z-index nhỏ hơn */
+  
+}
+/* Đảm bảo rằng lớp chồng lên sẽ che phủ phần tử tiếp theo */
+.notification-container + * {
+  position: relative;
+  z-index: 0;
+  max-width: 500px; /* Giới hạn chiều rộng tối đa của thông báo */
+  max-height: 500px; /* Giới hạn chiều cao tối đa của thông báo */
+}
+.col-notification{
+  overflow: auto;
+  max-width: 500px; /* Giới hạn chiều rộng tối đa của thông báo */
+  max-height: 500px; /* Giới hạn chiều cao tối đa của thông báo */
+}
+.col-title1 {
+  background: var(--orange-orange-400, #FF9138);
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+  color: var(--white, #FFF);
+font-family: Nunito;
+font-size: 20px;
+font-style: normal;
+font-weight: 700;
+line-height: 50px; /* 150% */
+}
+
+
+/* Notification */

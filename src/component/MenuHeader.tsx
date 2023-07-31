@@ -1,8 +1,15 @@
 import { BellFilled, UserOutlined } from "@ant-design/icons";
-import { Col, Row, Avatar, Space } from "antd";
-import React from "react";
+import { Col, Row, Avatar, Space, Button } from "antd";
+import React, { useState } from "react";
 import "../css/Style.css";
+
 const MenuHeader: React.FC = () => {
+  const [showNotification, setShowNotification] = useState(false);
+
+  const handleNotificationClick = () => {
+    setShowNotification(!showNotification);
+  };
+
   return (
     <Row>
       <Col span={19}>
@@ -10,20 +17,37 @@ const MenuHeader: React.FC = () => {
       </Col>
       
       <Col span={5}>
-        <div style={{display:"inline-block"}}>
-        <Space direction="vertical" size={16}>
-          <Space wrap size={16}>
-            <Avatar className="col-icon1" size={56} icon={<BellFilled />} />
-            <Avatar size={64} icon={<UserOutlined />} />
+        <div style={{ display: "inline-block" }}>
+          <Space direction="vertical" size={16}>
+            <Space wrap size={16}>
+              <Button className="col-icon1" icon={<BellFilled />} onClick={handleNotificationClick} />
+              <Avatar size={64} icon={<UserOutlined />} />
+            </Space>
           </Space>
-        </Space>
         </div>
-        <div style={{display:"inline-block", margin: 4}}>
-            <p className="col-p1">Xin chào</p>
-            <p className="col-p2" >Lê Quỳnh Ái Vân</p>
+        <div style={{ display: "inline-block", margin: 4 }}>
+          <p className="col-p1">Xin chào</p>
+          <p className="col-p2">Lê Quỳnh Ái Vân</p>
         </div>
+        {showNotification && (
+          <div className="notification-container">
+            <p title="text" className="col-title1">Thông báo</p>
+          <div className="col-notification">
+            <p>New notification 2</p>
+            <p>New notification 2</p>
+            <p>New notification 2</p>
+            <p>New notification 2</p>
+            <p>New notification 2</p>
+            <p>New notification 2</p>
+            <p>New notification 2</p>
+            <p>New notification 2</p>
+            
+            </div>
+          </div>
+        )}
       </Col>
     </Row>
   );
 };
+
 export default MenuHeader;

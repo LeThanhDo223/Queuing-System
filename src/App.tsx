@@ -7,6 +7,7 @@ import NewPassword from "./login/NewPassword";
 import MenuSider from "./component/MenuSider";
 import Information from "./information/Information";
 import MenuHeader from "./component/MenuHeader";
+import Notification from './component/Notification';
 
 function App() {
   return (
@@ -18,7 +19,9 @@ function App() {
       <Routes>
         <Route path="/header" element={<MenuHeader />} />
       </Routes>
-    
+      <Routes>
+        <Route path="/TB" element={<Notification />} />
+      </Routes>
     {/* Demo */}
 
 
