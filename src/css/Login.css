@@ -1,0 +1,60 @@
+.col_bg1 {
+    width: 100vw;
+    height: 100vh;
+    /* border-radius: 16px; */
+    background: var(--bg, #F6F6F6);
+  }
+  
+
+.col_img1{
+    text-align: center;
+    margin-top: 82px;
+    
+}
+
+.form_item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+.col_login{
+    margin-top: 82px;
+}
+
+.col_button{
+    display: flex;
+width: 162px;
+height: 40px;
+padding: 10px 24px;
+justify-content: center;
+align-items: center;
+gap: 8px;
+flex-shrink: 0;
+border-radius: 8px;
+background: var(--orange-orange-400, #FF9138);
+/* down */
+color: aliceblue;
+
+
+}
+.col_dn{
+    text-align: center;
+    
+}
+.col_qmk{
+
+    color: var(--red, #E73F3F);
+
+    /* 14/14 Reg */
+    font-size: 14px;
+    font-family: Nunito;
+    line-height: 21px;
+    }
+.col_text{
+    width: 450px;
+}
+.col_input{
+    height: 40px;
+}
+

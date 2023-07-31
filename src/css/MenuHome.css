@@ -1,0 +1,59 @@
+.col_img3 {
+  width: 150px;
+  height: 100px;
+  flex-shrink: 0;
+  padding-left: 50px;
+  padding-top: 40px;
+}
+
+.menu_DX {
+  margin-top: 350px;
+  padding-left: 20px;
+}
+
+.col_buttonDX {
+  color: var(--orange-orange-500, #ff7506);
+  font-size: 16px;
+  font-family: Nunito;
+  font-weight: 600;
+  line-height: 24px;
+  background: var(--orange-orange-50, #fff2e7);
+  box-shadow: 0px 4px 6px 0px rgba(219, 219, 219, 0.5);
+  border: none;
+  display: flex;
+  width: 176px;
+  padding: 12px;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.menu_text {
+  font-size: 16px;
+  font-family: Nunito;
+  font-weight: 600;
+  line-height: 24px;
+  
+}
+
+.menu-container .menu_text .ant-menu-item {
+  margin-bottom: 20px; /* Khoảng cách dưới */
+}
+
+.menu-container .menu_text .ant-menu-item-selected {
+  background-color: #FF7506;
+  color: #FFFFFF; /* Màu nền khi menu được chọn */
+}
+.layout-container {
+  background: var(--white, #FFF);
+  height: 920px;
+  flex: 0 0 200px;
+  max-width: 200px;
+  min-width: 200px;
+  width: 200px;
+  min-height: 100vh;
+
+}
+.col_info{
+  background: #F9F6F4;
+}
