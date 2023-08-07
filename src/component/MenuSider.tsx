@@ -45,14 +45,14 @@ const MenuSider: React.FC = () => {
             <Menu.Item key="/Dashboard" icon={<AppstoreOutlined />}>
               <Link to="/Dashboard">Dashboard</Link>
             </Menu.Item>
-            <Menu.Item key="/thietBi" icon={<DesktopOutlined />}>
-              <Link to="/thietBi">Thiết bị</Link>
+            <Menu.Item key="/equipment" icon={<DesktopOutlined />}>
+              <Link to="/equipment">Thiết bị</Link>
             </Menu.Item>
-            <Menu.Item key="/dichVu" icon={<CommentOutlined />}>
-              <Link to="/dichVu">Dịch vụ</Link>
+            <Menu.Item key="/service" icon={<CommentOutlined />}>
+              <Link to="/service">Dịch vụ</Link>
             </Menu.Item>
-            <Menu.Item key="/capSo" icon={<HddOutlined />}>
-              <Link to="/capSo">Cấp số</Link>
+            <Menu.Item key="/NumberLevel" icon={<HddOutlined />}>
+              <Link to="/NumberLevel">Cấp số</Link>
             </Menu.Item>
             <Menu.Item key="/baoCao" icon={<FundProjectionScreenOutlined />}>
               <Link to="/baoCao">Báo cáo</Link>

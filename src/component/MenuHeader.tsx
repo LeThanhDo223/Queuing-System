@@ -10,17 +10,24 @@ const MenuHeader: React.FC = () => {
     setShowNotification(!showNotification);
   };
 
+  // Cập nhật className của nút dựa trên trạng thái showNotification
+  const buttonClassName = showNotification ? "col-icon1 active" : "col-icon1";
+
   return (
     <Row>
       <Col span={19}>
         <p className="col-header">Thông tin cá nhân</p>
       </Col>
-      
+
       <Col span={5}>
         <div style={{ display: "inline-block" }}>
           <Space direction="vertical" size={16}>
             <Space wrap size={16}>
-              <Button className="col-icon1" icon={<BellFilled />} onClick={handleNotificationClick} />
+              <Button
+                className={buttonClassName} // Sử dụng biến buttonClassName
+                icon={<BellFilled />}
+                onClick={handleNotificationClick}
+              />
               <Avatar size={64} icon={<UserOutlined />} />
             </Space>
           </Space>
@@ -31,17 +38,18 @@ const MenuHeader: React.FC = () => {
         </div>
         {showNotification && (
           <div className="notification-container">
-            <p title="text" className="col-title1">Thông báo</p>
-          <div className="col-notification">
-            <p>New notification 2</p>
-            <p>New notification 2</p>
-            <p>New notification 2</p>
-            <p>New notification 2</p>
-            <p>New notification 2</p>
-            <p>New notification 2</p>
-            <p>New notification 2</p>
-            <p>New notification 2</p>
-            
+            <p title="text" className="col-title1">
+              Thông báo
+            </p>
+            <div className="col-notification">
+              <p>New notification 2</p>
+              <p>New notification 2</p>
+              <p>New notification 2</p>
+              <p>New notification 2</p>
+              <p>New notification 2</p>
+              <p>New notification 2</p>
+              <p>New notification 2</p>
+              <p>New notification 2</p>
             </div>
           </div>
         )}
