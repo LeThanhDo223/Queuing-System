@@ -1,30 +1,23 @@
-import React from 'react';
-import { Table } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Col, Layout, Row, Table } from 'antd';
+import { RootState } from "../redux/Store";
+import { fetchPageS } from "../redux/ServiceSlice";
 
-interface DataType {
-    madv: string;
-    tendv: string;
-    mota: string;
-    tthd: string;
-    read: string;
-    update: string;
-}
-
-//svg
 const Checkred= () => (
-    <svg width="8" height="9" viewBox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle id="Ellipse 1" cx="4" cy="4.5" r="4" fill="#EC3740"/>
-    </svg>
-  );
-  const Checkgreen = () => (
-    <svg width="8" height="9" viewBox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="8" height="9" viewBox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle id="Ellipse 1" cx="4" cy="4.5" r="4" fill="#EC3740"/>
+  </svg>
+);
+const Checkgreen = () => (
+  <svg width="8" height="9" viewBox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg">
 <circle id="Ellipse 1" cx="4" cy="4.5" r="4" fill="#34CD26"/>
 </svg>
 
+
   );
   
-  const columns: ColumnsType<DataType> = [
+  const columnsS = [
     {
       title: "Mã dịch vụ",
       dataIndex: 'madv',
@@ -46,7 +39,9 @@ const Checkred= () => (
         key: 'tthd',
         render: (tt: string) => (
           <>
+             <span style={{ marginRight: '4px' }}>
             {tt.length > 10 ? <Checkred /> : <Checkgreen />}
+            </span>
             {tt}
           </>
         ),
@@ -63,49 +58,46 @@ const Checkred= () => (
       },
   ];
   
+  
 
-const data: DataType[] = [
-  {
-    madv: '1',
-    tendv: 'John Brown',
-    mota: '32',
-    tthd: ' New York',
-    read:'read',
-    update: 'update',
-  },
-  {
-    madv: '2',
-    tendv: 'Jim Green',
-    mota: '42',
-    tthd: ' London No. 1 Lake Park',
-    read:'read',
-    update: 'update',
-  },
-  {
-    madv: '3',
-    tendv: 'Joe Black',
-    mota: '32',
-    tthd: ' Sydney No. 1 Lake Park',
-    read:'read',
-    update: 'update',
-  },
-  {
-    madv: '4',
-    tendv: 'Joe Black',
-    mota: '32',
-    tthd: ' Sydney',
-    read:'read',
-    update: 'update',
-  },
-];
 
-const TableService: React.FC = () => (
-  <Table
-    columns={columns}
-    dataSource={data}
+const TableService: React.FC = () => {
+  const dispatch = useDispatch();
+  const data = useSelector((state: RootState) => state.service.data);
+  const loading = useSelector((state: RootState) => state.service.loading);
+  const error = useSelector((state: RootState) => state.service.error);
+
+  useEffect(() => {
+    dispatch(fetchPageS() as any);
+  }, [dispatch]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
+  return (
+    <Layout>
+      <Row>
+        <Col span={24}>
+        <Table
+  className='table-E'
+    columns={columnsS}
+    dataSource={data.map((item, index) => ({
+      ...item,
+      key: index ,
+    }))}
     rowClassName={(record, index) =>
       index === 0 ? 'custom-row-first' : index % 2 === 0 ? 'custom-row-even' : 'custom-row-odd'
     }
   />
-);
+        </Col>
+      </Row>
+    </Layout>
+  );
+};
+
 export default TableService;

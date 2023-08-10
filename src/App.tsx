@@ -16,11 +16,13 @@ import Service from "./service/Service";
 import TableService from "./service/TableService";
 import ReadS from "./service/ReadS";
 import MenuDoiSoat from "./service/Demo";
-import TableDoiSoat from "./equipment/demo";
 import UpdateS from "./service/UpdateS";
 import NumberLevel from "./number_level/NumberLevel";
 import CreateNL from "./number_level/CreateNL";
-import DataForm from "./equipment/FormE";
+import Tags from "./equipment/Tags";
+import CreateS from "./service/CreateS";
+import TableR from "./Report/TableRport";
+import Report from './Report/Report';
 
 
 function App() {
@@ -53,16 +55,19 @@ function App() {
         <Route path="/demo" element={<MenuDoiSoat />} />
       </Routes>
       <Routes>
-        <Route path="/demotb" element={<TableDoiSoat />} />
-      </Routes>
-      <Routes>
         <Route path="/updateS" element={<UpdateS />} />
       </Routes>
       <Routes>
         <Route path="/createNL" element={<CreateNL />} />
       </Routes>
       <Routes>
-        <Route path="/form" element={<DataForm />} />
+        <Route path="/tags" element={<Tags />} />
+      </Routes>
+      <Routes>
+        <Route path="/createS" element={<CreateS />} />
+      </Routes>
+      <Routes>
+        <Route path="/tableR" element={<TableR />} />
       </Routes>
     {/* Demo */}
 
@@ -89,6 +94,9 @@ function App() {
       </Routes>
       <Routes>
         <Route path="/NumberLevel" element={<NumberLevel />} />
+      </Routes>
+      <Routes>
+        <Route path="/report" element={<Report />} />
       </Routes>
       {/* Main */}
     </BrowserRouter>

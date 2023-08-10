@@ -18,7 +18,7 @@ const CreateE: React.FC = () => {
     diachi: "",
     tthd: " Hoạt động",
     ttkn: " Kết nối",
-    dichvu: "",
+    dichvu: "", 
     tendn: "",
     mk: "",
     loaitb: "",
@@ -227,7 +227,7 @@ const CreateE: React.FC = () => {
         <Row>
           <Col style={{ textAlign: "center", marginTop: 30 }} span={24}>
             <Button className="button-create">Hủy bỏ</Button>
-            <Button onClick={handleAddData} className="button-create0" >
+            <Button onClick={handleAddData} className="button-create0" htmlType="submit">
               Thêm thiết bị
             </Button>
           </Col>

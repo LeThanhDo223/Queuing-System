@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Col, Layout, Row, Table } from 'antd';
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../redux/Store";
-import { fetchPageNL } from "../redux/NumberLevelSlice";
+import { fetchPageR } from "../redux/ReportSlice";
 
 
 const Checkblue= () => (
@@ -22,19 +22,14 @@ const Checkblue= () => (
 
   );
   
-  const columnsNL = [
+  const columnsR = [
     {
-      title: "STT",
+      title: "Số thứ tự",
       dataIndex: 'stt',
       key: 'stt',
     },
     {
-      title: "Tên khách hàng",
-      dataIndex: 'tenkh',
-      key: 'tenkh',
-    },
-    {
-      title: "Tên dịch vụ ",
+      title: "Tên dịch vụ",
       dataIndex: 'tendv',
       key: 'tendv',
     },
@@ -44,12 +39,7 @@ const Checkblue= () => (
       key: 'tgc',
     },
     {
-      title: "Hạn sử dụng",
-      dataIndex: 'hsd',
-      key: 'hsd',
-    },
-    {
-      title: 'Trạng thái',
+      title: 'Tình trạng',
       dataIndex: 'tt',
       key: 'tt',
       render: (tt: string) => (
@@ -61,31 +51,25 @@ const Checkblue= () => (
         </>
       ),
     },
-    
-    
       {
         title: "Nguồn cấp",
         dataIndex: 'nguonc',
         key: 'nguonc',
       },
-      {
-        title: "",
-        dataIndex: 'read',
-        key: 'read',
-      },
+     
       
   ];
   
 
 
-const TableNL: React.FC = () => {
+const TableR: React.FC = () => {
   const dispatch = useDispatch();
-  const data = useSelector((state: RootState) => state.numberlevel.data);
-  const loading = useSelector((state: RootState) => state.numberlevel.loading);
-  const error = useSelector((state: RootState) => state.numberlevel.error);
+  const data = useSelector((state: RootState) => state.report.data);
+  const loading = useSelector((state: RootState) => state.report.loading);
+  const error = useSelector((state: RootState) => state.report.error);
 
   useEffect(() => {
-    dispatch(fetchPageNL() as any);
+    dispatch(fetchPageR() as any);
   }, [dispatch]);
 
   if (loading) {
@@ -102,7 +86,7 @@ const TableNL: React.FC = () => {
         <Col span={24}>
         <Table
   className='table-E'
-    columns={columnsNL}
+    columns={columnsR}
     dataSource={data.map((item, index) => ({
       ...item,
       key: index ,
@@ -116,4 +100,4 @@ const TableNL: React.FC = () => {
     </Layout>
   );
 };
-export default TableNL;
+export default TableR;

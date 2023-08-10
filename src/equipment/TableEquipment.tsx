@@ -38,8 +38,10 @@ const Checkred= () => (
       key: 'tthd',
       render: (tt: string) => (
         <>
-          {tt.length > 10 ? <Checkred /> : <Checkgreen />}
-          {tt}
+           <span style={{ marginRight: '4px' }}>
+            {tt.length > 10 ? <Checkred /> : <Checkgreen />}
+            </span>
+            {tt}
         </>
       ),
     },
@@ -49,7 +51,9 @@ const Checkred= () => (
         key: 'ttkn',
         render: (tt: string) => (
           <>
+          <span style={{ marginRight: '4px' }}>
             {tt.length > 10 ? <Checkred /> : <Checkgreen />}
+            </span>
             {tt}
           </>
         ),

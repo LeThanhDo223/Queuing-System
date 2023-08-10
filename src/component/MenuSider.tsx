@@ -54,8 +54,8 @@ const MenuSider: React.FC = () => {
             <Menu.Item key="/NumberLevel" icon={<HddOutlined />}>
               <Link to="/NumberLevel">Cấp số</Link>
             </Menu.Item>
-            <Menu.Item key="/baoCao" icon={<FundProjectionScreenOutlined />}>
-              <Link to="/baoCao">Báo cáo</Link>
+            <Menu.Item key="/report" icon={<FundProjectionScreenOutlined />}>
+              <Link to="/report">Báo cáo</Link>
             </Menu.Item>
             <SubMenu key="settings" icon={<SettingOutlined />} title="Cài đặt hệ thống">
               <Menu.Item key="/qlVaiTro">

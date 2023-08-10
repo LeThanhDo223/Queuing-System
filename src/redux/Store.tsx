@@ -1,14 +1,23 @@
 import { configureStore } from "@reduxjs/toolkit";
 import EquipmentSlice from "./EquipmentSlice";
-import pageSlice from './demoSlice';
-import dataDichVu from "./dataDichVu";
+import ServiceSlice from "./ServiceSlice";
+import NumberLevelSlice from "./NumberLevelSlice";
+import ReportSlice from "./ReportSlice";
+import RoleSlice from "./System/RoleSlice";
+import AccountSlice from "./System/AccountSlice";
+import UserLogsSlice from "./System/UserLogsSlice";
 
 
 export const store = configureStore({
   reducer: {
     equipment: EquipmentSlice,
-    page: pageSlice,
-    dataDV:dataDichVu,
+    service: ServiceSlice,
+    numberlevel: NumberLevelSlice,
+    report: ReportSlice,
+    role: RoleSlice,
+    account: AccountSlice,
+    userlog: UserLogsSlice,
+
   },
 });
 
