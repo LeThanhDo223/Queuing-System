@@ -1,14 +1,14 @@
-import { Button, Col, Input, Layout, Row, Select } from "antd";
+import { Button, Col, Layout, Row } from "antd";
 import Sider from "antd/es/layout/Sider";
 import React from "react";
 import MenuSider from "../component/MenuSider";
 import { Content, Header } from "antd/es/layout/layout";
 import "../css/Style.css";
 import MenuHeader from "../component/MenuHeader";
-import { SearchOutlined } from "@ant-design/icons";
+
 import TableEquipment from './TableEquipment';
 import { Link } from "react-router-dom";
-const { Option } = Select;
+
 const Add= () => (
   <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g id="vuesax/bold/add-square">
@@ -29,41 +29,6 @@ const Equipment: React.FC = () => {
           <MenuHeader />
         </Header>
         <Content className="content">
-          <Row>
-            <Col>
-              <h1 className="col-titleEquipment">Danh sách thiết bị</h1>
-            </Col>
-          </Row>
-          <Row>
-            <Col className="col-text" span={6}>
-              Trạng thái hoạt động
-            </Col>
-            <Col className="col-text" span={10}>
-              Trạng thái kết nối
-            </Col>
-            <Col className="col-text" span={8}>
-              Từ khoá
-            </Col>
-          </Row>
-          <Row>
-            <Col  span={6}>
-              <Select className="col-input1" defaultValue="option1">
-                <Option value="option1">Tất cả</Option>
-                <Option value="option2">Hoạt động</Option>
-                <Option value="option3">Ngưng hoạt động</Option>
-              </Select>
-            </Col>
-            <Col span={10}>
-              <Select className="col-input1" defaultValue="option1" >
-                <Option value="option1">Tất cả</Option>
-                <Option value="option2">Kết nối</Option>
-                <Option value="option3">Mất kết nối</Option>
-              </Select>
-            </Col>
-            <Col  span={8}>
-              <Input placeholder="Nhập từ khóa" className="col-input1" suffix={<SearchOutlined />} />
-            </Col>
-          </Row>
           <Row>
             <Col style={{marginTop:'20px'}} span={22}>
             <TableEquipment />
