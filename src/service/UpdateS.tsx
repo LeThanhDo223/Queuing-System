@@ -1,25 +1,100 @@
-import { Col, Input, Layout, Row, Form, Checkbox, Button, Space } from "antd";
-import React from "react";
-import { Content } from "antd/es/layout/layout";
+import { Col, Input, Layout, Row, Form, Checkbox, Button, Space, Breadcrumb } from "antd";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useParams } from "react-router-dom";
+import { Content, Header } from "antd/es/layout/layout";
 import "../css/Style.css";
 import type { CheckboxValueType } from "antd/es/checkbox/Group";
+import { RootState } from "../redux/Store";
+import { tableService } from "../redux/ServiceSlice";
+import { updatePageData } from "../redux/ServiceSlice";
+import Sider from "antd/es/layout/Sider";
+import MenuSider from "../component/MenuSider";
+import MenuHeader from "../component/MenuHeader";
+
 
 const onChange = (checkedValues: CheckboxValueType[]) => {
   console.log("checked = ", checkedValues);
 };
 const UpdateS: React.FC = () => {
   const [form] = Form.useForm();
+  const { id } = useParams<{ id: string }>();
+  const dispatch = useDispatch();
+  const data = useSelector((state: RootState) => state.service.data);
+  const [updatedData, setUpdatedData] = useState<tableService | undefined>(
+    undefined
+  );
+
+  useEffect(() => {
+    const item = data.find((item) => item.id === id);
+    if (item) {
+      setUpdatedData(item);
+    }
+  }, [data, id]);
+
+  const handleSubmit = () => {
+    if (updatedData) {
+      dispatch(updatePageData(updatedData) as any); // Explicitly type the dispatch
+    }
+  };
+  
+
+  const handleInputChange = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = event.target;
+    if (updatedData) {
+      setUpdatedData({
+        ...updatedData,
+        [name]: value,
+      });
+    }
+  };
+  if (!updatedData) {
+    return <div>Loading...</div>;
+  }
+  const breadcrumbItems = [
+    { title: "Dịch vụ", link: "" },
+    { title: "Danh sách dịch vụ", link: "/service" },
+    { title: "Chi tiết", link: `/readS/${id}` },
+    { title: "Cập nhật", link: `/updateS/${id}` },
+  ];
   return (
-    <Layout>
-      <Content>
-        <h1 className="col-titleReadE">Quản lý thiết bị</h1>
-        <div style={{ paddingLeft: 20 }} className="col_ReadE">
+   <>
+      <Layout>
+        <Sider>
+          <MenuSider />
+        </Sider>
+        <Layout>
+          <Header style={{ background: "none" }}>
+            <Row>
+              <Col span={19}>
+                <Breadcrumb className="text-t1">
+                  {breadcrumbItems.map((item, index) => (
+                    <Breadcrumb.Item key={index}>
+                      <Link to={item.link}>{item.title}</Link>
+                    </Breadcrumb.Item>
+                  ))}
+                </Breadcrumb>
+              </Col>
+              <Col span={5}>
+                <MenuHeader />
+              </Col>
+            </Row>
+          </Header>
+          <Content>
+            <h1 className="col-titleReadE">Quản lý thiết bị</h1>
+            <Row>
+              <Col span={1}></Col>
+              <Col span={22}>
+              <div style={{ paddingLeft: 20 }} className="col_ReadE">
           <Row>
             <Col className="text-titleRead" span={24}>
               Thông tin dịch vụ
             </Col>
           </Row>
           <Form
+          onFinish={handleSubmit}
             form={form}
             name="validateOnly"
             layout="vertical"
@@ -39,7 +114,10 @@ const UpdateS: React.FC = () => {
                         },
                       ]}
                     >
-                      <Input className="input-create" />
+                      <Input className="input-create"
+                      name="madv"
+                      value={updatedData.madv}
+                      onChange={handleInputChange} />
                     </Form.Item>
                   </Col>
                 </Row>
@@ -55,7 +133,9 @@ const UpdateS: React.FC = () => {
                         },
                       ]}
                     >
-                      <Input className="input-create" />
+                      <Input className="input-create" name="tendv"
+                      value={updatedData.tendv}
+                      onChange={handleInputChange} />
                     </Form.Item>
                   </Col>
                 </Row>
@@ -64,7 +144,10 @@ const UpdateS: React.FC = () => {
                 <Form.Item label="Mô tả:" name="mota">
                   <Input.TextArea
                     style={{ height: 120 }}
-                    placeholder="Mô tả dịch vụ"
+                    
+                    name="mota"
+                      value={updatedData.mota}
+                      onChange={handleInputChange}
                   />
                 </Form.Item>
               </Col>
@@ -112,14 +195,19 @@ const UpdateS: React.FC = () => {
             <span style={{ color: "red" }}>*</span> Là trường thông tin bắt buộc
           </p>
         </div>
-        <Row>
+              </Col>
+              <Col span={1}></Col>
+            </Row>
+           <Row>
           <Col style={{ textAlign: "center", marginTop: 30 }} span={24}>
             <Button className="button-create">Hủy bỏ</Button>
-            <Button className="button-create0">Cập nhật</Button>
+            <Button className="button-create0" htmlType="submit">Cập nhật</Button>
           </Col>
         </Row>
-      </Content>
-    </Layout>
+          </Content>
+        </Layout>
+      </Layout>
+    </>
   );
 };
 

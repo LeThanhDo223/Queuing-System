@@ -5,7 +5,8 @@ import { firestore } from "../firebase/firebase";
 export interface tableReport {
     stt: string;
     tendv: string;
-    tgc: string;
+    ngay: string;
+    gio: string;
     tt: string;
     nguonc: string;
 }

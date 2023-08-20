@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Button, Col, Layout, Row, Space, Table, DatePicker } from 'antd';
+import { Button, Col, Layout, Row, Space, Table,DatePicker } from 'antd';
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../redux/Store";
-import { fetchPageR, tableReport } from "../redux/ReportSlice";
+import { RootState } from "../../redux/Store";
 import { Content } from 'antd/es/layout/layout';
-import Papa from 'papaparse';
-import dayjs from "dayjs";
-import advancedFormat from "dayjs/plugin/advancedFormat";
-dayjs.extend(advancedFormat);
-
+import dayjs from "dayjs"; // Import Dayjs library
+import advancedFormat from "dayjs/plugin/advancedFormat"; // Import plugin for custom formatting
+import { fetchPageA } from "../../redux/System/AccountSlice";
+dayjs.extend(advancedFormat); // Extend Dayjs with the plugin
 const Dowloand = () => (
   <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
   <g id="vuesax/bold/document-download">
@@ -40,60 +38,34 @@ const Checkblue= () => (
   
   const columnsR = [
     {
-      title: "Số thứ tự",
-      dataIndex: 'stt',
-      key: 'stt',
-      filters: [
-        {
-          text: '2010001',
-          value: '2010001',
-        },
-        {
-          text: '2010003',
-          value: '2010003',
-        },
-      ]
+      title: "Tên đăng nhập",
+      dataIndex: 'tendn',
+      key: 'tendn',
     },
     {
-      title: "Tên dịch vụ",
-      dataIndex: 'tendv',
-      key: 'tendv',
-      filters: [
-        {
-          text: '2010001',
-          value: '2010001',
-        },
-        {
-          text: '2010003',
-          value: '2010003',
-        },
-      ]
+      title: "Họ tên",
+      dataIndex: 'hoten',
+      key: 'hoten',
     },
     {
-      title: "Thời gian cấp",
-      dataIndex: "ngay",
-      key: "ngay",
-      render: (ngay: string, record: tableReport) => (
-        <div>
-          <span>{record.gio} </span>
-          <span>- {ngay} </span>
-        </div>
-      ),
-      filters: [
-        {
-          text: '2010001',
-          value: '2010001',
-        },
-        {
-          text: '2010003',
-          value: '2010003',
-        },
-      ]
+      title: "Số điện thoại",
+      dataIndex: 'sdt',
+      key: 'sdt',
     },
     {
-      title: 'Tình trạng',
-      dataIndex: 'tt',
-      key: 'tt',
+      title: "Email",
+      dataIndex: 'email',
+      key: 'email',
+    },
+    {
+      title: "Vai trò",
+      dataIndex: 'vaitro',
+      key: 'vaitro',
+    },
+    {
+      title: 'Trạng thái hoạt động',
+      dataIndex: 'tthd',
+      key: 'tthd',
       render: (tt: string) => (
         <>
           <span style={{ marginRight: '4px' }}>
@@ -102,30 +74,17 @@ const Checkblue= () => (
           {tt}
         </>
       ),
-      filters: [
-        {
-          text: '2010001',
-          value: '2010001',
-        },
-      ]
     },
       {
-        title: "Nguồn cấp",
-        dataIndex: 'nguonc',
-        key: 'nguonc',
-        filters: [
-          {
-            text: '2010001',
-            value: '2010001',
-          },
-        ]
+        title: "",
+        dataIndex: 'update',
+        key: 'update',
       },
-      
      
       
   ];
   
-const TableR: React.FC = () => {
+const TableAccount: React.FC = () => {
   const dispatch = useDispatch();
   const data = useSelector((state: RootState) => state.report.data);
   const loading = useSelector((state: RootState) => state.report.loading);
@@ -144,7 +103,7 @@ const [selectedFromDate, setSelectedFromDate] = useState<dayjs.Dayjs | null>(nul
 
 
   useEffect(() => {
-    dispatch(fetchPageR() as any);
+    dispatch(fetchPageA() as any);
   }, [dispatch]);
 
   if (loading) {
@@ -154,35 +113,15 @@ const [selectedFromDate, setSelectedFromDate] = useState<dayjs.Dayjs | null>(nul
   if (error) {
     return <div>Error: {error}</div>;
   }
-  const generateCSV = () => {
-    const csvData = data.map(item => [
-      item.stt,
-      item.tendv,
-      item.ngay,
-      item.tt,
-      item.nguonc,
-    ]);
-
-    const csvContent = Papa.unparse({
-      fields: ['Số thứ tự', 'Tên dịch vụ', 'Thời gian cấp', 'Tình trạng', 'Nguồn cấp'],
-      data: csvData,
-    });
-
-    const blob = new Blob([csvContent], { type: 'text/csv' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'report.csv';
-    a.click();
-    URL.revokeObjectURL(url);
-  };
 
   return (
     <Layout>
       <Row>
         <Col span={22}>
         <Content className="content">
+          
           <Row>
+            
           </Row>
           <Row>
             <Col className="col-text" span={6}>
@@ -239,14 +178,14 @@ const [selectedFromDate, setSelectedFromDate] = useState<dayjs.Dayjs | null>(nul
         </Col>
         
         <Col style={{  marginTop: "20px", textAlign: "end", paddingTop:'50px'}} span={2}>
-        <Button className="equipment-button" onClick={generateCSV}>
-        <Dowloand />
-        <span style={{ display: 'block', width: '80px' }}>Tải về</span>
-      </Button>
+              <Button className="equipment-button">
+                <Dowloand />
+                <span style={{ display: "block", width:'80px' }}>Tải về</span>
+              </Button>
             </Col>
       </Row>
       
     </Layout>
   );
 };
-export default TableR;
+export default TableAccount;

@@ -1,19 +1,18 @@
-import { Breadcrumb, Col, Layout, Row } from "antd";
+import {  Breadcrumb, Col, Layout, Row } from "antd";
 import Sider from "antd/es/layout/Sider";
 import React from "react";
-import MenuSider from "../component/MenuSider";
+import MenuSider from "../../component/MenuSider";
 import { Content, Header } from "antd/es/layout/layout";
-import "../css/Style.css";
-import MenuHeader from "../component/MenuHeader";
-
-import TableEquipment from './TableEquipment';
+import "../../css/Style.css";
+import MenuHeader from "../../component/MenuHeader";
+import TableRole from "./TableRole";
 import { Link } from "react-router-dom";
 
 
-const Equipment: React.FC = () => {
+const Role: React.FC = () => {
   const breadcrumbItems = [
-    { title: "Thiết bị", link: "" },
-    { title: "Danh sách thiết bị", link: "/equipment" },
+    { title: "Cài đặt hệ thống", link: "" },
+    { title: "Quản lý vai trò", link: "/role" },
   ];
   return (
     <Layout>
@@ -21,7 +20,7 @@ const Equipment: React.FC = () => {
         <MenuSider />
       </Sider>
       <Layout>
-        <Header style={{ background: "none", marginTop:'10px' }}>
+      <Header style={{ background: "none", marginTop:'10px' }}>
           <Row>
             <Col span={19}>
             <Breadcrumb  className="text-t1">
@@ -38,16 +37,17 @@ const Equipment: React.FC = () => {
           </Row>
           
         </Header>
-        <Content className="content">
+       
           <Row>
-            <Col style={{marginTop:'20px'}} span={24}>
-            <TableEquipment />
+            <Col style={{ marginTop: "20px" }} span={24}>
+              <TableRole />
             </Col>
+            
           </Row>
-        </Content>
+       
       </Layout>
     </Layout>
   );
 };
 
-export default Equipment;
+export default Role;

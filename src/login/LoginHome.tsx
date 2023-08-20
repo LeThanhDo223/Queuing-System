@@ -14,7 +14,7 @@ const LoginHome: React.FC = () => {
       await signInWithEmailAndPassword(authInstance, username, password);
 
       // Đăng nhập thành công, thay đổi địa chỉ URL
-      window.location.href = '/menu'; // Thay thế thành đường dẫn bạn muốn chuyển hướng đến
+      window.location.href = '/dashboard'; // Thay thế thành đường dẫn bạn muốn chuyển hướng đến
     } catch (error: any) {
       setError("Sai mật khẩu hoặc tên đăng nhập");
     }

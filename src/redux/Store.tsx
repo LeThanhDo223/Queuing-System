@@ -6,6 +6,7 @@ import ReportSlice from "./ReportSlice";
 import RoleSlice from "./System/RoleSlice";
 import AccountSlice from "./System/AccountSlice";
 import UserLogsSlice from "./System/UserLogsSlice";
+import Notification from "./Notification";
 
 
 export const store = configureStore({
@@ -17,6 +18,7 @@ export const store = configureStore({
     role: RoleSlice,
     account: AccountSlice,
     userlog: UserLogsSlice,
+    notificationData: Notification,
 
   },
 });

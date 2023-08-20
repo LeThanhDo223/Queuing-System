@@ -1,11 +1,15 @@
-import { Col, Input, Layout, Row, Form, Select, Button } from "antd";
+import { Col, Input, Layout, Row, Form, Select, Button, Breadcrumb } from "antd";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Content } from "antd/es/layout/layout";
+import { Content, Header } from "antd/es/layout/layout";
 import "../css/Style.css";
 import { collection, addDoc } from "firebase/firestore";
 import { firestore } from "../firebase/firebase";
 import { tableEquipment, addPageData } from "../redux/EquipmentSlice";
+import Sider from "antd/es/layout/Sider";
+import MenuSider from "../component/MenuSider";
+import { Link } from "react-router-dom";
+import MenuHeader from "../component/MenuHeader";
 
 const { Option } = Select;
 
@@ -13,6 +17,7 @@ const CreateE: React.FC = () => {
   const dispatch = useDispatch();
 
   const [newData, setNewData] = useState<tableEquipment>({
+    id: "",
     matb: "",
     tentb: "",
     diachi: "",
@@ -34,6 +39,7 @@ const CreateE: React.FC = () => {
 
       // Xóa các trường trong form
       setNewData({
+        id: "",
         matb: "",
         tentb: "",
         diachi: "",
@@ -58,11 +64,39 @@ const CreateE: React.FC = () => {
     setNewData({ ...newData, loaitb: value }); // Update the state with the selected value
   };
   const [form] = Form.useForm();
+  const breadcrumbItems = [
+    { title: "Thiết bị", link: "" },
+    { title: "Danh sách thiết bị", link: "/equipment" },
+    { title: "Thêm thiết bị", link: `/createE` },
+  ];
   return (
     <Layout>
-      <Content>
-        <h1 className="col-titleReadE">Quản lý thiết bị</h1>
-        <div style={{ paddingLeft: 20 }} className="col_ReadE">
+      <Sider>
+        <MenuSider />
+      </Sider>
+      <Layout>
+        <Header style={{ background: "none" }}>
+          <Row>
+            <Col span={19}>
+              <Breadcrumb className="text-t1">
+                {breadcrumbItems.map((item, index) => (
+                  <Breadcrumb.Item key={index}>
+                    <Link to={item.link}>{item.title}</Link>
+                  </Breadcrumb.Item>
+                ))}
+              </Breadcrumb>
+            </Col>
+            <Col span={5}>
+              <MenuHeader />
+            </Col>
+          </Row>
+        </Header>
+        <Content>
+          <h1 className="col-titleReadE">Quản lý thiết bị</h1>
+         <Row>
+          <Col span={1}></Col>
+          <Col span={22}>
+          <div style={{ paddingLeft: 20 }} className="col_ReadE">
           <Row>
             <Col className="text-titleRead" span={24}>
               Thông tin thiết bị
@@ -103,7 +137,7 @@ const CreateE: React.FC = () => {
             ]}
           >
             <Select
-              style={{ width: "800px" }}
+              style={{ width: "700px" }}
               placeholder="Chọn loại thiết bị"
               allowClear
               // Set the value of the Select based on the selectedLoaiTB state
@@ -224,7 +258,10 @@ const CreateE: React.FC = () => {
             <span style={{ color: "red" }}>*</span> Là trường thông tin bắt buộc
           </p>
         </div>
-        <Row>
+          </Col>
+          <Col span={1}></Col>
+         </Row>
+         <Row>
           <Col style={{ textAlign: "center", marginTop: 30 }} span={24}>
             <Button className="button-create">Hủy bỏ</Button>
             <Button onClick={handleAddData} className="button-create0" htmlType="submit">
@@ -232,7 +269,8 @@ const CreateE: React.FC = () => {
             </Button>
           </Col>
         </Row>
-      </Content>
+        </Content>
+      </Layout>
     </Layout>
   );
 };

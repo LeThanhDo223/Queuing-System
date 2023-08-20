@@ -42,8 +42,8 @@ const MenuSider: React.FC = () => {
             onOpenChange={handleSubMenuOpenChange}
             style={{ borderRight: "none" }}
           >
-            <Menu.Item key="/Dashboard" icon={<AppstoreOutlined />}>
-              <Link to="/Dashboard">Dashboard</Link>
+            <Menu.Item key="/dashboard" icon={<AppstoreOutlined />}>
+              <Link to="/dashboard">Dashboard</Link>
             </Menu.Item>
             <Menu.Item key="/equipment" icon={<DesktopOutlined />}>
               <Link to="/equipment">Thiết bị</Link>
@@ -58,14 +58,14 @@ const MenuSider: React.FC = () => {
               <Link to="/report">Báo cáo</Link>
             </Menu.Item>
             <SubMenu key="settings" icon={<SettingOutlined />} title="Cài đặt hệ thống">
-              <Menu.Item key="/qlVaiTro">
-                <Link to="/qlVaiTro">Gói dịch vụ</Link>
+              <Menu.Item key="/role">
+                <Link to="/role">Quản lý vai trò</Link>
               </Menu.Item>
-              <Menu.Item key="/qlTaiKhoan">
-                <Link to="/qlTaiKhoan">Quản lý tài khoản</Link>
+              <Menu.Item key="/account">
+                <Link to="/account">Quản lý tài khoản</Link>
               </Menu.Item>
-              <Menu.Item key="/nkNguoiDung">
-                <Link to="/nkNguoiDung">Nhật ký người dùng</Link>
+              <Menu.Item key="/userLogs">
+                <Link to="/userLogs">Nhật ký người dùng</Link>
               </Menu.Item>
             </SubMenu>
           </Menu>

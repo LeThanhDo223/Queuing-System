@@ -9,7 +9,6 @@ import MenuSider from "./component/MenuSider";
 import Information from "./information/Information";
 import MenuHeader from "./component/MenuHeader";
 import Equipment from './equipment/Equipment';
-import TableEquipment from './equipment/TableEquipment';
 import ReadE from './equipment/ReadE';
 import CreateE from './equipment/CreateE';
 import Service from "./service/Service";
@@ -21,8 +20,16 @@ import NumberLevel from "./number_level/NumberLevel";
 import CreateNL from "./number_level/CreateNL";
 import Tags from "./equipment/Tags";
 import CreateS from "./service/CreateS";
-import TableR from "./Report/TableRport";
+import TableR from "./Report/TableRport"
 import Report from './Report/Report';
+import UpdateE from "./equipment/UpdateE";
+import Account from "./System/Account/Account";
+import Role from "./System/Role/Role";
+import UserLogs from "./System/UserLogs/UserLogs";
+import Dashboard from "./dashboard/Dashboard";
+import ChartD from "./dashboard/ChartD";
+import PieChartE from "./dashboard/PieChartE";
+import ReadNL from "./number_level/ReadNL";
 
 
 function App() {
@@ -37,10 +44,10 @@ function App() {
         <Route path="/header" element={<MenuHeader />} />
       </Routes>
       <Routes>
-        <Route path="/tableE" element={<TableEquipment />} />
+        <Route path="/readE/:id" element={<ReadE />} />
       </Routes>
       <Routes>
-        <Route path="/redE" element={<ReadE />} />
+        <Route path="/updateE/:id" element={<UpdateE />} />
       </Routes>
       <Routes>
         <Route path="/createE" element={<CreateE />} />
@@ -49,13 +56,16 @@ function App() {
         <Route path="/tableS" element={<TableService />} />
       </Routes>
       <Routes>
-        <Route path="/redS" element={<ReadS />} />
+        <Route path="/readS/:id" element={<ReadS />} />
+      </Routes>
+      <Routes>
+        <Route path="/readNL/:id" element={<ReadNL />} />
       </Routes>
       <Routes>
         <Route path="/demo" element={<MenuDoiSoat />} />
       </Routes>
       <Routes>
-        <Route path="/updateS" element={<UpdateS />} />
+        <Route path="/updateS/:id" element={<UpdateS />} />
       </Routes>
       <Routes>
         <Route path="/createNL" element={<CreateNL />} />
@@ -69,6 +79,12 @@ function App() {
       <Routes>
         <Route path="/tableR" element={<TableR />} />
       </Routes>
+      <Routes>
+        <Route path="/chartD" element={<ChartD />} />
+      </Routes>
+      <Routes>
+        <Route path="/pieChart" element={<PieChartE />} />
+      </Routes>
     {/* Demo */}
 
 
@@ -77,6 +93,7 @@ function App() {
       <Routes>
         <Route path="/" element={<LoginHome />} />
       </Routes>
+      
       <Routes>
         <Route path="/forgot" element={<Forgot />} />
       </Routes>
@@ -84,7 +101,10 @@ function App() {
         <Route path="/newPassword" element={<NewPassword />} />
       </Routes>
       <Routes>
-        <Route path="/menu" element={<Information />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
+      <Routes>
+        <Route path="/information" element={<Information />} />
       </Routes>
       <Routes>
         <Route path="/equipment" element={<Equipment />} />
@@ -98,6 +118,16 @@ function App() {
       <Routes>
         <Route path="/report" element={<Report />} />
       </Routes>
+      <Routes>
+        <Route path="/account" element={<Account />} />
+      </Routes>
+      <Routes>
+        <Route path="/role" element={<Role />} />
+      </Routes>
+      <Routes>
+        <Route path="/userLogs" element={<UserLogs />} />
+      </Routes>
+      
       {/* Main */}
     </BrowserRouter>
     </Provider>

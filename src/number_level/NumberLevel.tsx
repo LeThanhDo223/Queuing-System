@@ -1,13 +1,12 @@
-import { Button, Col, Input, Layout, Row, Select,Space,DatePicker } from "antd";
+import { Button, Col, Input, Layout, Row, Select,Space,DatePicker, Breadcrumb } from "antd";
 import Sider from "antd/es/layout/Sider";
 import React from "react";
 import MenuSider from "../component/MenuSider";
 import { Content, Header } from "antd/es/layout/layout";
 import "../css/Style.css";
 import MenuHeader from "../component/MenuHeader";
-import { SearchOutlined } from "@ant-design/icons";
 import TableEquipment from "./TableNL";
-const { Option } = Select;
+import { Link } from "react-router-dom";
 const Add = () => (
   <svg
     width="28"
@@ -27,87 +26,39 @@ const Add = () => (
     </g>
   </svg>
 );
-const { RangePicker } = DatePicker;
 const NumberLevel: React.FC = () => {
+  const breadcrumbItems = [
+    { title: "Cấp số", link: "" },
+    { title: "Danh sách cấp số", link: "/NumberLevel" },
+  ];
   return (
     <Layout>
       <Sider>
         <MenuSider />
       </Sider>
       <Layout>
-        <Header style={{ background: "none" }}>
-          <MenuHeader />
+        <Header style={{ background: "none", marginTop:'10px' }}>
+          <Row>
+            <Col span={19}>
+            <Breadcrumb  className="text-t1">
+            {breadcrumbItems.map((item, index) => (
+              <Breadcrumb.Item key={index}>
+                <Link to={item.link}>{item.title}</Link>
+              </Breadcrumb.Item>
+            ))}
+          </Breadcrumb>
+            </Col>
+            <Col span={5}>
+              <MenuHeader/>
+            </Col>
+          </Row>
+          
         </Header>
         <Content className="content">
+         
           <Row>
-            <Col>
-              <h1 className="col-titleEquipment">Quản lý cấp số</h1>
-            </Col>
-          </Row>
-          <Row>
-            <Col className="col-text" span={4}>
-              Tên dịch vụ
-            </Col>
-            <Col className="col-text" span={4}>
-              Tình trạng
-            </Col>
-            <Col className="col-text" span={4}>
-              Nguồn cấp
-            </Col>
-            <Col className="col-text" span={6}>
-              Chọn thời gian
-            </Col>
-            <Col className="col-text" span={6}>
-              Từ khoá
-            </Col>
-          </Row>
-          <Row>
-            <Col span={4}>
-            <Select className="nl-input" defaultValue="option1">
-                <Option value="option1">Tất cả</Option>
-                <Option value="option2">Khám sản - Phụ khoa</Option>
-                <Option value="option3">Khám răng hàm mặt</Option>
-                <Option value="option4">Khám tai mũi họng</Option>
-              </Select>
-            </Col>
-            <Col span={4}>
-            <Select className="nl-input" defaultValue="option1">
-                <Option value="option1">Tất cả</Option>
-                <Option value="option2">Đang chờ</Option>
-                <Option value="option3">Đã sử dụng</Option>
-                <Option value="option4">Bỏ qua</Option>
-              </Select>
-            </Col>
-            <Col span={4}>
-            <Select className="nl-input" defaultValue="option1">
-                <Option value="option1">Tất cả</Option>
-                <Option value="option2">Kiosk</Option>
-                <Option value="option3">Hệ thống</Option>
-              </Select>
-            </Col>
-            <Col span={6}>
-              <Space direction="vertical" size={12}>
-                <RangePicker className="nl-input1"/>
-              </Space>
-            </Col>
-            <Col span={6}>
-              <Input 
-                placeholder="Nhập từ khóa"
-                className="nl-input2"
-                suffix={<SearchOutlined />}
-                
-              />
-            </Col>
-          </Row>
-          <Row>
-            <Col style={{ marginTop: "20px" }} span={22}>
+            <Col style={{ marginTop: "20px" }} span={24}>
               <TableEquipment />
-            </Col>
-            <Col style={{ marginTop: "20px", textAlign: "end" }} span={2}>
-              <Button className="equipment-button">
-                <Add />
-                <span style={{ display: "block" }}>Cấp số mới</span>
-              </Button>
             </Col>
           </Row>
         </Content>

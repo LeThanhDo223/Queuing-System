@@ -201,9 +201,7 @@ line-height: 36px;
 .col_ReadE{
   border-radius: 24px;
   background: #fff;
-  margin-left: 40px;
   flex-shrink: 0;
-  margin-right: 40px;
   
 }
 .text-read{
@@ -234,10 +232,10 @@ padding-top: 20px;
 }
 /* CreateE */
 .input-create{
-  width: 800px;
+  width: 700px;
 }
 .input-create0{
-  width: 1700px;
+  width: 1450px;
 }
 .button-create{
 width: 147px;
@@ -301,7 +299,7 @@ margin-left: 20px;
   padding-left: 20px;
 }
 .reads-input1{
-  width: 250px ;
+  width: 200px ;
 }
 .title-readS{
 color: var(--orange-orange-500, #FF7506);
@@ -332,6 +330,9 @@ line-height: 24px;
 border: 1.5px solid var(--gray-gray-100, #D4D4D7);
 width: 50px;
 height: 30px;
+}
+.input_cs{
+  width: 70px;
 }
 /* ReadS */
 
@@ -441,3 +442,225 @@ line-height: 60px;
 }
 
 /*CreateNL*/
+
+
+/*  Dashboard*/
+.h1_D{
+  color: var(--orange-orange-400, #FF9138);
+
+/* 20/20 Bold */
+font-family: Nunito;
+font-size: 20px;
+font-style: normal;
+font-weight: 700;
+line-height: 30px; /* 150% */
+margin-top: 20px;
+}
+.h1_D2{
+  color: var(--orange-orange-500, #FF7506);
+
+/* 24/24 Bold */
+font-family: Nunito;
+font-size: 24px;
+font-style: normal;
+font-weight: 700;
+line-height: 36px; /* 150% */
+margin-top: 50px;
+}
+.D-icon{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px; /* Điều chỉnh kích thước phù hợp */
+    height: 50px; /* Điều chỉnh kích thước phù hợp */
+    border-radius: 50%; /* Biến thành hình tròn */
+    background-color: #dde8ff; /* Màu nền */
+}
+.D-icon2{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px; /* Điều chỉnh kích thước phù hợp */
+    height: 50px; /* Điều chỉnh kích thước phù hợp */
+    border-radius: 50%; /* Biến thành hình tròn */
+    background-color: #d2f4da; /* Màu nền */
+}
+.D-icon3{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px; /* Điều chỉnh kích thước phù hợp */
+    height: 50px; /* Điều chỉnh kích thước phù hợp */
+    border-radius: 50%; /* Biến thành hình tròn */
+    background-color: #fff3e9; /* Màu nền */
+}
+.D-icon4{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px; /* Điều chỉnh kích thước phù hợp */
+    height: 50px; /* Điều chỉnh kích thước phù hợp */
+    border-radius: 50%; /* Biến thành hình tròn */
+    background-color: #f9d6d6; /* Màu nền */
+}
+.B-Icon{
+  width: 186px;
+  height: 120px;
+  flex-shrink: 0;
+  border-radius: 10px;
+background: var(--white, #FFF);
+}
+.text-D{
+  color: var(--gray-gray-400-text, #535261);
+
+/* 14/14 Bold */
+font-family: Nunito;
+font-size: 14px;
+font-style: normal;
+font-weight: 700;
+line-height: 18px; /* 128.571% */
+}
+.num-D{
+  color: var(--gray-gray-400-text, #535261);
+
+/* 30/30 Bold */
+font-family: Nunito;
+font-size: 30px;
+font-style: normal;
+font-weight: 700;
+line-height: 45px; /* 150% */
+}
+.B-Da{
+  margin: 15px;
+}
+.D-2{
+  width: 401px;
+  height: 930px;
+  flex-shrink: 0;
+  border-radius: 8px 0px 0px 8px;
+background: var(--white, #FFF);
+box-shadow: 0px 4px 6px 0px rgba(219, 219, 219, 0.50);
+}
+.text-D2{
+  color: var(--orange-orange-500, #FF7506);
+
+/* 24/24 Bold */
+font-family: Nunito;
+font-size: 24px;
+font-style: normal;
+font-weight: 700;
+line-height: 36px; /* 150% */
+margin: 20px;
+}
+.B-da1{
+  width: 353px;
+height: 100px;
+flex-shrink: 0;
+border-radius: 12px;
+background: var(--white, #FFF);
+box-shadow: 2px 2px 15px 0px rgba(70, 64, 67, 0.10);
+margin-left: 25px;
+}
+.text-D1{
+  color: var(--gray-gray-500, #282739);
+
+/* 20/20 Bold */
+font-family: Nunito;
+font-size: 20px;
+font-style: normal;
+font-weight: 700;
+line-height: 30px; /* 150% */
+}
+.text-D2{
+  color: var(--gray-gray-500, #282739);
+
+/* 16/16 Semi */
+font-family: Nunito;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: 24px; /* 150% */
+}
+.text-D3{
+  color: var(--gray-gray-200-placeholder, #A9A9B0);
+
+/* 14/14 Reg */
+font-family: Nunito;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 21px; /* 150% */
+}
+.data-2{
+  width: 353px; 
+height: 100px;
+flex-shrink: 0;
+border-radius: 12px;
+background: var(--white, #FFF);
+box-shadow: 2px 2px 15px 0px rgba(70, 64, 67, 0.10);
+margin-left: 25px;
+}
+.col-inputD1{
+  width: 100px;
+}
+/*  Dashboard*/
+
+
+/* PieChartE */
+.pieChartE{
+  margin-top: -150px;
+  margin-left: -60px;
+}
+.text-t1{
+  color: var(--gray-blue-gray-4-place-holder, #7E7D88);
+
+/* 20/20 Bold */
+font-family: Nunito;
+font-size: 20px;
+font-style: normal;
+font-weight: 700;
+line-height: 30px; /* 150% */
+margin-top: 20px;
+}
+
+/* PieChartE */
+.text-In{
+  color: var(--orange-orange-600, #BF5805);
+
+/* 16/16 Bold */
+font-family: Nunito;
+font-size: 16px;
+font-style: normal;
+font-weight: 700;
+line-height: 24px; /* 150% */
+}
+.text-In1{
+  color: var(--gray-gray-400-text, #535261);
+
+/* 16/16 Reg */
+font-family: Nunito;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 24px; /* 150% */
+}
+.text-Da1{
+  color: var(--gray-gray-400-text, #535261);
+font-family: Nunito;
+font-size: 24px;
+font-style: normal;
+font-weight: 800;
+line-height: 36px; /* 150% */
+}
+.text-Db2{
+  color: var(--gray-gray-300, #7E7D88);
+font-family: Nunito;
+font-size: 12px;
+font-style: normal;
+font-weight: 400;
+line-height: 21px; /* 175% */
+}
+:where(.css-dev-only-do-not-override-12upa3x).ant-table-wrapper .ant-table-thead >tr>th, :where(.css-dev-only-do-not-override-12upa3x).ant-table-wrapper .ant-table-thead >tr>td {
+ 
+    color: rgb(255 255 255 / 88%);
+}
